@@ -8,7 +8,7 @@ RUN  apt-get -yq update && \
 COPY . . 
 # grant access right to private repositories during the build process
 RUN stack update
-RUN stack install
+RUN stack install --install-ghc
 # multi-stage build
 FROM --platform=linux/amd64 haskell:9.2.5-slim
 # copy the built binary 
